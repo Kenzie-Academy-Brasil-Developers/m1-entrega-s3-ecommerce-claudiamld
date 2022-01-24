@@ -10,7 +10,7 @@ header {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    padding: 0.5rem;
+    padding: 0.8rem;
     background-color: #F5F5F5;
     -webkit-box-shadow: 0px 4px 9px -1px rgba(0,0,0,0.48); 
     box-shadow: 0px 4px 9px -1px rgba(0,0,0,0.15);
@@ -18,9 +18,38 @@ header {
 
 .logo {
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.8rem;
     margin-left: 10px;
     text-shadow: 0px 2px 3px rgba(15,7,4,0.4);
+}
+
+.input__search {
+    display: flex;
+    flex-direction: row;
+}
+
+input {
+    background-color: #F5F5F5;
+    border: 1px solid #828282;
+    border-radius: 4px;
+    width: 30vw;
+    height: 2.2vh;
+    font-size: 0.4rem;
+    padding-left: 0.4rem;
+    margin: 0.5vh;
+}
+
+.input__search button {
+    width: 30vw;
+    height: 2.5vh;
+    border-radius: 4px;
+    border: none;
+    background-color: #333333;
+    color: #ffffff;
+    font-weight: 500;
+    margin-top: 0.5vh;
+    margin-right: 10vw;
+    font-size: 0.5rem;
 }
 
 .menu__nav ul{
@@ -40,6 +69,9 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-bottom: 1px solid #F5F5F5;
+    -webkit-box-shadow: 0px 4px 9px -1px rgba(0,0,0,0.48); 
+    box-shadow: 0px 4px 9px -1px rgba(0,0,0,0.15);
 }
 
 .card__product {
@@ -49,6 +81,8 @@ header {
     margin: 15px;
     border: 2px solid #F5F5F5;
     box-sizing: border-box;
+    -webkit-box-shadow: 0px 4px 9px -1px rgba(0,0,0,0.28); 
+    box-shadow: 0px 4px 9px -1px rgba(0,0,0,0.12);
 }
 
 .card__image {
@@ -98,7 +132,7 @@ figcaption {
     font-weight: 600;
 }
 
-button {
+.card__info button {
     font-size: 0.8rem;
     color: #828282;
     background-color: #ffffff;
@@ -107,3 +141,52 @@ button {
     text-decoration: underline;
     margin-top: 15px;
 }
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-top: 8vh;
+    margin-bottom: 8vh;
+}
+
+.cart__title {
+    background-color: #6B54DE;
+    color: #ffffff;
+    width: 80vw;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+}
+
+.cart__title p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.cart__content {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: 40vh;
+    background-color: #F5F5F5;
+    justify-content: center;
+    align-items: center;
+    align-content: center;  
+}
+
+.cart__content h3 {
+    color: #333333;
+    width: auto;
+}
+
+.cart__content p {
+    color: #828282;
+    width: auto;
+}
+
