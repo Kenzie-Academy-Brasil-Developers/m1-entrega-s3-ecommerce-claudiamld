@@ -64,7 +64,7 @@ input {
     color: #828282;
 } 
 
-.vitrine {
+#vitrine {
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -87,6 +87,12 @@ input {
 
 .card__image {
     background-color: #F5F5F5;
+    min-height: 9.5rem;
+}
+
+img {
+    max-width: 200px;
+    max-height: 150px;
 }
 
 .card__content {
@@ -235,7 +241,7 @@ figcaption {
         flex-direction: row;
     }
 
-    .vitrine {
+    #vitrine {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -319,7 +325,7 @@ figcaption {
     .cart {
         width: 20rem;
         height: 30rem;   
-        margin: 27px;
+        margin: 27px 0;
     }
 
     .search__desk {
