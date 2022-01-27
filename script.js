@@ -1,16 +1,81 @@
-    const catalog = [
-        {img: './assets/black-hat.png', label: 'Acessórios', title: 'Black Hat', description: 'O gorro Next.js chegou! Esta beldade bordada tem um ajuste confortável que garante que...', price: 'R$ 100.00'},
-        {img: './assets/surgical-mask.png', label: 'Acessórios', title: 'Mask', description: 'Esta máscara facial durável é feita de duas camadas de tecido tratado e possui presilhas...', price: 'R$ 40.00'},
-        {img: './assets/men-tshirt.png', label: 'Camisetas', title: 'T-Shirt', description: 'Esta t-shirt é imprescindível no seu guarda-roupa, combinando o caimento intemporal de...', price: 'R$ 100.00'},
-        {img: './assets/short-sleeve-tshirt.png', label: 'Camisetas', title: 'Short Sleeve T-Shirt', description: 'Agora você encontrou a camiseta básica do seu guarda-roupa. É feito de um mais grosso...', price: 'R$ 100.00'},
-        {img: './assets/champion-jacket.png', label: 'Camisetas', title: 'Champion Packable Jacket', description: 'roteja-se dos elementos com esta jaqueta embalável Champion. Esta jaqueta de poliést...', price: 'R$ 100.00'}
-    ]  
-     
+    // declarando variáveis
+    let cart = []
     
-    const vitrine = document.getElementById('vitrine');
+    const catalog = [
+        {id: 1, img: './assets/black-hat.png', label: 'Acessórios', title: 'Black Hat', description: 'O gorro Next.js chegou! Esta beldade bordada tem um ajuste confortável que garante que...', price: `R$ ${100.00}`},
+        {id: 2, img: './assets/surgical-mask.png', label: 'Acessórios', title: 'Mask', description: 'Esta máscara facial durável é feita de duas camadas de tecido tratado e possui presilhas...', price: `R$ ${40.00}`},
+        {id: 3, img: './assets/men-tshirt.png', label: 'Camisetas', title: 'T-Shirt', description: 'Esta t-shirt é imprescindível no seu guarda-roupa, combinando o caimento intemporal de...', price: `R$ ${100.00}`},
+        {id: 4, img: './assets/short-sleeve-tshirt.png', label: 'Camisetas', title: 'Short Sleeve T-Shirt', description: 'Agora você encontrou a camiseta básica do seu guarda-roupa. É feito de um mais grosso...', price: `R$ ${100.00}`},
+        {id: 5, img: './assets/champion-jacket.png', label: 'Camisetas', title: 'Champion Packable Jacket', description: 'roteja-se dos elementos com esta jaqueta embalável Champion. Esta jaqueta de poliést...', price: `R$ ${100.00}`},
+        {id: 6, img: './assets/men-jacket.png', label: 'Camisetas', title: 'Lightweight Jacket', description: 'Adicione um pouco de energia ao seu guarda-roupa de inverno com esta jaqueta vibrante...', price: `R$ ${100.00}`}
+    ]   
+
+        //html do carrinho vazio
+        
+        const divToAppend = document.getElementById('cart__content')
+        const cartEmptyContent = document.createElement('h3')
+        cartEmptyContent.innerText = 'Carrinho vazio'
+        const paragraph = document.createElement('p')
+        paragraph.innerText = 'Adicione itens'
+    
+        //fim do html do carrinho vazio
+    
+    
+    //fim da declaração de variáveis
+   
+    //declarando funções
+
+    function addToCart(id) {
+        let productFiltered = catalog.filter((prod) => prod.id === id)
+        cart.push(productFiltered[0])
+        isEmptyCart()
+        console.log(cart);
+    }
+
+    function isEmptyCart() {
+        if(cart.length < 1) {
+            divToAppend.appendChild(cartEmptyContent)
+            divToAppend.appendChild(paragraph)
+        } else {
+            const cartToAppend = document.getElementById('cart__content')
+            cartToAppend.innerHTML = ''
+
+            cart.map((item) => {
+
+                const productCart = document.createElement('div')
+                productCart.classList.add('product__cart')
+                cartToAppend.appendChild(productCart)
+                const picCart = document.createElement('div')
+                picCart.classList.add('pic__cart')
+                productCart.appendChild(picCart)
+                const imgCart = document.createElement('img')
+                imgCart.src = item.img
+                picCart.appendChild(imgCart)
+                const productInfo = document.createElement('div')
+                productInfo.classList.add('product__info')
+                productCart.appendChild(productInfo)
+                const titleCard = document.createElement('h3')
+                titleCard.innerText = item.title
+                productInfo.appendChild(titleCard)
+                const priceCart = document.createElement('span')
+                priceCart.classList.add('cart__price')
+                priceCart.innerText = item.price
+                productInfo.appendChild(priceCart)
+                const btnCart = document.createElement('button')
+                btnCart.id = 'btn__remove'
+                btnCart.innerText = 'Remover produto'
+                productInfo.appendChild(btnCart)                    
+            })
+        }
+    }
+
+    //fim da declaração de funções
+
+    //renderização dos cards
 
     catalog.map((prod) => {
-    
+        const vitrine = document.getElementById('vitrine');
+
         const cardProduct = document.createElement('div')
         cardProduct.classList.add('card__product')
         const cardImage = document.createElement('div')
@@ -33,9 +98,9 @@
         price.classList.add('card__price')
         price.innerText = prod.price
         const button = document.createElement('button')
+        button.id = `btn__add-${prod.id}`
         button.innerText = 'Adicionar ao carrinho'
-    
-    
+       
         cardProduct.appendChild(cardImage)
         cardImage.appendChild(image)
         cardProduct.appendChild(content)
@@ -50,3 +115,22 @@
         vitrine.appendChild(cardProduct)
         
     })
+
+    //fim da renderização dos cards
+
+    //atribuição de funções para os botões dos cards do catálogo
+    
+    document.getElementById('btn__add-1').onclick = function(){addToCart(1)}
+    document.getElementById('btn__add-2').onclick = function(){addToCart(2)}
+    document.getElementById('btn__add-3').onclick = function(){addToCart(3)}
+    document.getElementById('btn__add-4').onclick = function(){addToCart(4)}
+    document.getElementById('btn__add-5').onclick = function(){addToCart(5)}
+    document.getElementById('btn__add-6').onclick = function(){addToCart(6)}
+    
+    //fim da atribuição
+    
+    //chamando funções
+    
+    isEmptyCart()
+
+    //fim da chamada de funções
