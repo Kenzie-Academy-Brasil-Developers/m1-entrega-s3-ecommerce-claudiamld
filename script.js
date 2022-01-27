@@ -34,11 +34,17 @@
     }
 
     function removeFromCart(id) {
-        console.log(id);
+        let newCart = cart.filter((prod) => prod.id !== id) 
+        cart = newCart
+        isEmptyCart()
+        console.log(cart);
     }
 
     function isEmptyCart() {
         if(cart.length < 1) {
+            const cartToAppend = document.getElementById('cart__content')
+            cartToAppend.innerHTML = ''
+            
             divToAppend.appendChild(cartEmptyContent)
             divToAppend.appendChild(paragraph)
         } else {
