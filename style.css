@@ -16,6 +16,10 @@ header {
     box-shadow: 0px 4px 9px -1px rgba(0,0,0,0.15);
 }
 
+.search__desk {
+    display: none;
+}
+
 .logo {
     font-weight: bold;
     font-size: 1.8rem;
