@@ -71,7 +71,7 @@
             productInfo.appendChild(priceCart)
             productInfo.appendChild(btnCart)    
             
-            document.getElementById(btnCart.id).onclick = function(){removeFromCart(item.id)}
+            btnCart.onclick = function(){removeFromCart(item.id)}
         })
     }
 
@@ -137,7 +137,7 @@
     
         vitrine.appendChild(cardProduct)
 
-        document.getElementById(button.id).onclick = function(){addToCart(prod.id)}
+        button.onclick = function(){addToCart(prod.id)}
         
     })
 
