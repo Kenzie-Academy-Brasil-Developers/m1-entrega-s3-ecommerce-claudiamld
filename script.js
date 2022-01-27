@@ -33,9 +33,46 @@
     function addToCart(id) {
         let productFiltered = catalog.filter((prod) => prod.id === id)
         cart.push(productFiltered[0])
-        isEmptyCart()
+        renderCart()
         console.log(cart);
 
+    }
+
+    function renderCart() {
+
+        const cartToAppend = document.getElementById('cart__content')
+        cartToAppend.innerHTML = ''
+
+        cart.map((item) => {
+            const cartToAppend = document.getElementById('cart__content')
+
+            const productCart = document.createElement('li')
+            productCart.classList.add('product__cart')
+            const picCart = document.createElement('div')
+            picCart.classList.add('pic__cart')
+            const imgCart = document.createElement('img')
+            imgCart.src = item.img
+            const productInfo = document.createElement('div')
+            productInfo.classList.add('product__info')
+            const titleCard = document.createElement('h3')
+            titleCard.innerText = item.title
+            const priceCart = document.createElement('span')
+            priceCart.classList.add('cart__price')
+            priceCart.innerText = item.price
+            const btnCart = document.createElement('button')
+            btnCart.id = `btn__remove-${item.id}`
+            btnCart.innerText = 'Remover produto'
+            
+            cartToAppend.appendChild(productCart)
+            productCart.appendChild(picCart)
+            picCart.appendChild(imgCart)
+            productCart.appendChild(productInfo)
+            productInfo.appendChild(titleCard)
+            productInfo.appendChild(priceCart)
+            productInfo.appendChild(btnCart)    
+            
+            document.getElementById(btnCart.id).onclick = function(){removeFromCart(item.id)}
+        })
     }
 
     function removeFromCart(id) {
@@ -49,41 +86,9 @@
         if(cart.length < 1) {
             const cartToAppend = document.getElementById('cart__content')
             cartToAppend.innerHTML = ''
-            
             divToAppend.appendChild(emptyCart)
         } else {
-            const cartToAppend = document.getElementById('cart__content')
-            cartToAppend.innerHTML = ''
-
-            cart.map((item) => {
-
-                const productCart = document.createElement('li')
-                productCart.classList.add('product__cart')
-                const picCart = document.createElement('div')
-                picCart.classList.add('pic__cart')
-                const imgCart = document.createElement('img')
-                imgCart.src = item.img
-                const productInfo = document.createElement('div')
-                productInfo.classList.add('product__info')
-                const titleCard = document.createElement('h3')
-                titleCard.innerText = item.title
-                const priceCart = document.createElement('span')
-                priceCart.classList.add('cart__price')
-                priceCart.innerText = item.price
-                const btnCart = document.createElement('button')
-                btnCart.id = `btn__remove-${item.id}`
-                btnCart.innerText = 'Remover produto'
-                
-                cartToAppend.appendChild(productCart)
-                productCart.appendChild(picCart)
-                picCart.appendChild(imgCart)
-                productCart.appendChild(productInfo)
-                productInfo.appendChild(titleCard)
-                productInfo.appendChild(priceCart)
-                productInfo.appendChild(btnCart)    
-                
-                document.getElementById(btnCart.id).onclick = function(){removeFromCart(item.id)}
-            })
+            renderCart()
         }
     }
 
