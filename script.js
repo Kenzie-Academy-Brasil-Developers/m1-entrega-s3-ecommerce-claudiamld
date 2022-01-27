@@ -30,6 +30,11 @@
         cart.push(productFiltered[0])
         isEmptyCart()
         console.log(cart);
+
+    }
+
+    function removeFromCart(id) {
+        console.log(id);
     }
 
     function isEmptyCart() {
@@ -44,27 +49,30 @@
 
                 const productCart = document.createElement('div')
                 productCart.classList.add('product__cart')
-                cartToAppend.appendChild(productCart)
                 const picCart = document.createElement('div')
                 picCart.classList.add('pic__cart')
-                productCart.appendChild(picCart)
                 const imgCart = document.createElement('img')
                 imgCart.src = item.img
-                picCart.appendChild(imgCart)
                 const productInfo = document.createElement('div')
                 productInfo.classList.add('product__info')
-                productCart.appendChild(productInfo)
                 const titleCard = document.createElement('h3')
                 titleCard.innerText = item.title
-                productInfo.appendChild(titleCard)
                 const priceCart = document.createElement('span')
                 priceCart.classList.add('cart__price')
                 priceCart.innerText = item.price
-                productInfo.appendChild(priceCart)
                 const btnCart = document.createElement('button')
-                btnCart.id = 'btn__remove'
+                btnCart.id = `btn__remove-${item.id}`
                 btnCart.innerText = 'Remover produto'
-                productInfo.appendChild(btnCart)                    
+                
+                cartToAppend.appendChild(productCart)
+                productCart.appendChild(picCart)
+                picCart.appendChild(imgCart)
+                productCart.appendChild(productInfo)
+                productInfo.appendChild(titleCard)
+                productInfo.appendChild(priceCart)
+                productInfo.appendChild(btnCart)    
+                
+                document.getElementById(btnCart.id).onclick = function(){removeFromCart(item.id)}
             })
         }
     }
@@ -118,14 +126,18 @@
 
     //fim da renderização dos cards
 
-    //atribuição de funções para os botões dos cards do catálogo
-    
-    document.getElementById('btn__add-1').onclick = function(){addToCart(1)}
-    document.getElementById('btn__add-2').onclick = function(){addToCart(2)}
-    document.getElementById('btn__add-3').onclick = function(){addToCart(3)}
-    document.getElementById('btn__add-4').onclick = function(){addToCart(4)}
-    document.getElementById('btn__add-5').onclick = function(){addToCart(5)}
-    document.getElementById('btn__add-6').onclick = function(){addToCart(6)}
+    //atribuição de funções para os botões
+
+        //botões de add
+        
+        document.getElementById('btn__add-1').onclick = function(){addToCart(1)}
+        document.getElementById('btn__add-2').onclick = function(){addToCart(2)}
+        document.getElementById('btn__add-3').onclick = function(){addToCart(3)}
+        document.getElementById('btn__add-4').onclick = function(){addToCart(4)}
+        document.getElementById('btn__add-5').onclick = function(){addToCart(5)}
+        document.getElementById('btn__add-6').onclick = function(){addToCart(6)}
+        
+        //fim dos botões de add
     
     //fim da atribuição
     
