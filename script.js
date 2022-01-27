@@ -90,7 +90,7 @@
     catalog.map((prod) => {
         const vitrine = document.getElementById('vitrine');
 
-        const cardProduct = document.createElement('div')
+        const cardProduct = document.createElement('li')
         cardProduct.classList.add('card__product')
         const cardImage = document.createElement('div')
         cardImage.classList.add('card__image')
