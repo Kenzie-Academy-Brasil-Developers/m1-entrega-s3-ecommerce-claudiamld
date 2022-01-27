@@ -13,10 +13,15 @@
         //html do carrinho vazio
         
         const divToAppend = document.getElementById('cart__content')
+        const emptyCart = document.createElement('div')
+        emptyCart.classList.add('emptycart__content')
         const cartEmptyContent = document.createElement('h3')
         cartEmptyContent.innerText = 'Carrinho vazio'
         const paragraph = document.createElement('p')
         paragraph.innerText = 'Adicione itens'
+
+        emptyCart.appendChild(cartEmptyContent)
+        emptyCart.appendChild(paragraph)
     
         //fim do html do carrinho vazio
     
@@ -45,15 +50,14 @@
             const cartToAppend = document.getElementById('cart__content')
             cartToAppend.innerHTML = ''
             
-            divToAppend.appendChild(cartEmptyContent)
-            divToAppend.appendChild(paragraph)
+            divToAppend.appendChild(emptyCart)
         } else {
             const cartToAppend = document.getElementById('cart__content')
             cartToAppend.innerHTML = ''
 
             cart.map((item) => {
 
-                const productCart = document.createElement('div')
+                const productCart = document.createElement('li')
                 productCart.classList.add('product__cart')
                 const picCart = document.createElement('div')
                 picCart.classList.add('pic__cart')
