@@ -400,7 +400,7 @@ figcaption {
         margin: 5px 0;
     }
 
-    #btn__remove{
+    .product__info button{
         font-size: 0.8rem;
         width: 7rem;
         color: #828282;
@@ -409,7 +409,7 @@ figcaption {
         display: flex;
     }
 
-    #btn__remove:hover {
+    .product__info button:hover {
         cursor: pointer;
         font-weight: bold;
         color: #9b2226;
