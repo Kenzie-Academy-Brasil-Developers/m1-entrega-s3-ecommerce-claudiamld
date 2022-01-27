@@ -85,7 +85,7 @@
 
     //fim da declaração de funções
 
-    //renderização dos cards
+    //renderização da vitrine
 
     catalog.map((prod) => {
         const vitrine = document.getElementById('vitrine');
@@ -127,26 +127,13 @@
         info.appendChild(button)
     
         vitrine.appendChild(cardProduct)
+
+        document.getElementById(button.id).onclick = function(){addToCart(prod.id)}
         
     })
 
-    //fim da renderização dos cards
+    //fim da renderização da vitrine
 
-    //atribuição de funções para os botões
-
-        //botões de add
-        
-        document.getElementById('btn__add-1').onclick = function(){addToCart(1)}
-        document.getElementById('btn__add-2').onclick = function(){addToCart(2)}
-        document.getElementById('btn__add-3').onclick = function(){addToCart(3)}
-        document.getElementById('btn__add-4').onclick = function(){addToCart(4)}
-        document.getElementById('btn__add-5').onclick = function(){addToCart(5)}
-        document.getElementById('btn__add-6').onclick = function(){addToCart(6)}
-        
-        //fim dos botões de add
-    
-    //fim da atribuição
-    
     //chamando funções
     
     isEmptyCart()
