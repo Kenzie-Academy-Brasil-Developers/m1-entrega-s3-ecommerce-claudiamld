@@ -9,8 +9,8 @@
         {id: 5, img: './assets/champion-jacket.png', label: 'Camisetas', title: 'Champion Packable Jacket', description: 'roteja-se dos elementos com esta jaqueta embalável Champion. Esta jaqueta de poliést...', price: `R$ ${100.00}`},
         {id: 6, img: './assets/men-jacket.png', label: 'Camisetas', title: 'Lightweight Jacket', description: 'Adicione um pouco de energia ao seu guarda-roupa de inverno com esta jaqueta vibrante...', price: `R$ ${100.00}`}
     ]   
-
-        //html do carrinho vazio
+ 
+        //html do carrinho empty
         
         const divToAppend = document.getElementById('cart__content')
         const emptyCart = document.createElement('div')
